@@ -43,6 +43,7 @@ int Solve(string s1,string s2){
             mp[s1[j]]--;
             if(mp[s1[j]]==0)
                 count--;
+        }
         //checking length of substring each time (it must be equal to pattern string in length .If not then increase j pointer)
         if(j-i+1<s2.length()){
             j++;
@@ -50,9 +51,9 @@ int Solve(string s1,string s2){
         //when we hit the size of substring equal to pattern string then we find answer
         else if(j-i+1==s2.length()){
             //if count becomes zero -> all the character of current substring is equal to pattern string.
-            if(count==0)
+            if(count==0){ans++;}
             //increase count 
-                ans++;
+                
             //sliding window ->by checking if current character at i index is in our pattern string if yes then simply update the
             //frequency in map
             if(mp.find(s1[i])!=mp.end()){
@@ -64,17 +65,16 @@ int Solve(string s1,string s2){
             i++;
             j++;
         }
-        }
     }
+    
+    
     return ans;
-    
-    
 }
 
 
 int main(){
-    string text="aabaabaa";
-    string ptr="aaba";
+    string text="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk";
+    string ptr="kkkkk";
     // int res=CountAnagra(text,ptr);
     int res2=Solve(text,ptr);
     cout<<res2;
